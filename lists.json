@@ -1,0 +1,11 @@
+{
+    "Lists": [{
+        "Example List": [
+            "Task 1", "Task 2", "Task 3"
+        ]
+    }, {
+        "User List 1": [
+            "Task 1", "Task 2", "Task 3"
+        ]
+    }]
+}
