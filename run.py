@@ -3,8 +3,8 @@
 import json
 
 with open('lists.json', 'r') as f:
-    all_lists = json.load(f)
+    lists_json_file = json.load(f)
 
-
-for task in all_lists['Lists'][0]['Example List']:
-    print(task)
+ALL_LISTS = lists_json_file['Lists']
+LIST_TITLES = list(ALL_LISTS[0].keys())
+EXAMPLE_LIST_TITLE = ALL_LISTS[0].keys()

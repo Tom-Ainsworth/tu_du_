@@ -1,9 +1,8 @@
 {
     "Lists": [{
         "Example List": [
-            "Task 1", "Task 2", "Task 3"
-        ]
-    }, {
+            "Brush my teeth", "Go to the gym", "Feed the cat", "Book a haircut"
+        ],
         "User List 1": [
             "Task 1", "Task 2", "Task 3"
         ]
