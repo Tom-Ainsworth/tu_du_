@@ -33,12 +33,13 @@ def delay_print(string):
     '''
     Prints out a string 1 character at a time to aid readability for users
     '''
-    
+
     for character in string:
         sys.stdout.write(character)
         sys.stdout.flush()
         sleep(0.05)
     sleep(1)
+
 
 def main():
     '''
@@ -46,6 +47,7 @@ def main():
     '''
 
     display_intro_text()
-    delay_print('          The Productivity App that helps you manage your tasks')
+    delay_print('\n          The Productivity App that helps you manage your tasks')
+
 
 main()
