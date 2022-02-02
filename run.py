@@ -1,9 +1,13 @@
-''' Run a to do list via a CLI '''
+'''Run a to do list via a CLI'''
 
+from __future__ import print_function, unicode_literals
 import json
 import sys
 from time import sleep
+
+# from prompt_toolkit import prompt
 from art import tprint
+from PyInquirer import prompt
 
 with open('lists.json', 'r') as f:
     lists_json_file = json.load(f)
@@ -41,13 +45,38 @@ def delay_print(string):
     sleep(1)
 
 
+def show_main_menu():
+    '''
+    Displays the user options featured at the start of the app
+    '''
+
+    main_menu = [
+        {
+            "type": "list",
+            "name": "game",
+            "message": "What would you like to do?",
+            "choices": [
+                "Create a New List",
+                "See Instructions"
+            ]
+        }
+    ]
+
+    answer = prompt(main_menu).get("game")
+    if answer == "\n\nWhat would you like to do?":
+        create_new_list()
+    else:
+        show_instructions_page()
+
+
 def main():
     '''
     Main function to run on app openings
     '''
 
     display_intro_text()
-    delay_print('\n          The Productivity App that helps you manage your tasks')
+    delay_print('\n          The productivity app that helps you manage your tasks\n')
+    show_main_menu()
 
 
 main()
