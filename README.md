@@ -146,39 +146,11 @@ content.
 
 ##### Desktop
 
-![Desktop Wireframe](./readme-content/wireframes/index.png)  
+![Desktop Wireframe](readme-content/wireframes/desktop_wireframe.png)  
 
 ##### Mobile
 
-![Mobile Wireframe](./readme-content/wireframes/mobile.png)
-
----
-
-#### Colour Scheme
-
-The colour scheme for this project relies heavily on the colours available
-through the `colorama` package within Python. The package has allowed a few
-colours to be applied to text within the terminal environment. The colours
-outside the terminal are designed based around a classic CRT style monitor.  
-Contrast checks have been done to ensure the 'Run Program' button and text
-present are of a high enough contrast to be easily read.
-
----
-
-#### Typography
-
-VT323 has been chosen from Google Fonts for the header, footer and button.
-The font is styled much like a classic terminal font and is perfect for this
-application.
-
----
-
-#### Imagery
-
-The background image is a modified image from [pexels.com](https://pexels.com)
-and has been used as it reminded me of the introductory lighting that was used
-on the 'Who Wants To Be A Millionaire' television show. The colours also
-compliment the rest of the design.
+![Mobile Wireframe]()
 
 ---
 
