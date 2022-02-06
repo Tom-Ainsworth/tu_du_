@@ -37,8 +37,11 @@ hold 'Command' + click on Mac, and 'ctrl' on Windows
       - [Typography](#typography)
       - [Imagery](#imagery)
   - [Logic](#logic)
-    - [Initial Flow](#initial-flow)
-    - [Python Logic](#python-logic)
+    - [Initial Plan](#initial-plan)
+    - [Function Ideas](#function-ideas)
+    - [Main Flow](#main-flow)
+    - [Create List Flow](#create-list-flow)
+    - [JSON Data Structure](#json-data-structure)
   - [Features](#features)
     - [Existing Features](#existing-features)
       - [UX](#ux)
@@ -146,36 +149,33 @@ content.
 
 ##### Desktop
 
-![Desktop Wireframe](readme-content/wireframes/desktop_wireframe.png)  
-
-##### Mobile
-
-![Mobile Wireframe]()
+![Desktop Wireframe](readme-content/wireframes/desktop_wireframe.png)
 
 ---
 
 ## Logic
 
-I used flowcharts and bullet lists to map out how the app would work, so that I had a better idea of what needed to be done, and how I could store and call data. At first I wrote down a list of possible functions, and how they would interact with each other. This formed the base for the project, but as I progressed, I found that extra functions, or different approached needed to be taken. I used the Apples built in [Notes](https://en.wikipedia.org/wiki/Notes_(Apple)) app to do the first list mockup here:
-![Notes Plan](readme-content/images/tu-du-list-flow.png)
-[[Lucid.app](https://lucid.app/) to create the flowcharts. It has a variety of symbols and is really intuitive for beginners like me.
+I used flowcharts and bullet lists to map out how the app would work, so that I had a better idea of what needed to be done, and how I could store and call data. At first I wrote down a list of possible functions, and how they would interact with each other. This formed the base for the project, but as I progressed, I found that extra functions, or different approached needed to be taken. I used the Apples built in [Notes](https://en.wikipedia.org/wiki/Notes_(Apple)) app to do the first list mockup and later [Lucid](https://lucid.app/) to create the flowcharts. It has a variety of symbols and is really intuitive for beginners like me.
 
 ### Initial Plan
 
+![Initial Plan](readme-content/images/tu-du-list-flow.png)
+
+### Function Ideas
+
+![Function Ideas](readme-content/images/tu-du-function-ideas.png)
 
 ### Main Flow
 
-![Flow Chart](./readme-content/images/quiz-logic.png)
-
----
+![Main Flow Chart](readme-content/images/tu-du-main-flowchart.png)
 
 ### Create List Flow
 
-![Flow Chart](./readme-content/images/python-logic.png)
+![Create Lists Flow Chart](readme-content/images/tu-du-create-list-flowchart.png)
 
 ### JSON Data Structure
 
-
+![JSON Structure](readme-content/images/tu-du-data-structure.png)
 
 ---
 
@@ -241,52 +241,6 @@ I used flowcharts and bullet lists to map out how the app would work, so that I 
 
 ---
 
-#### Keywords
-
-1. Even The Odds
-   - *This allows users to remove 2 incorrect answers*
-   - If a user inputs a keyword, they will be presented with the question and
-    only 2 answers, one of which will be correct. This will only be allowed
-    once during each play.
-
-2. Call A Coder
-   - *This allows users to receive some advice from an ersatz friend*
-   - If a user requires assistance on a question, they may input a keyword that
-    generates a simulated response from another coder. The response received
-    may not be correct. The chance of the response being correct is scaled
-    depending on the current question number.
-
-3. Request A Review
-   - *This allows users to pose the current question to a pseudo panel of
-    spectators*
-   - If a user is struggling with an answer, they may request assistance from a
-     spurious audience. The responses received may not be correct and are
-     scaled depending on the current question number.
-
-4. Help
-   - *This allows users to read through the rules and keyword meanings during
-    the quiz*
-   - This will prevent user frustration due to forgetting any keyword
-    meanings.
-
-5. Take
-   - *This allows users to leave the quiz with their current score*
-   - By providing this feature, if users are unsure of an answer, they may
-    stop the quiz in the hope of having their score entered on the score board.
-
-6. Scores
-   - *This allows users to view the score board at any time*
-   - This feature enables users to check where they are in relation to the high
-    scores before deciding whether to attempt difficult questions. It also adds
-    a nice competitive element to encourage returning visits.
-
-7. ???
-   - *There is a secret keyword that has a secret function*
-   - This feature is just here for fun...remember, the cake is a lie!
-   - 'Hi Ron!' ༼ ◕_◕ ༽つ
-
----
-
 ### Features Left to Implement
 
 At present, I am happy with the features in the program. Possible additions
@@ -302,29 +256,12 @@ could include:
 
 ## Data Model
 
-A [Google Sheet](#google-sheets) was used to store scores and token strings.
-The sheets consists of two worksheets, 'tokens' and 'scores', for clarity.
-The scores cells are identified using two ranges, one for users and one for
-the score values. This allowed me to experiment with some extra functions
-available through the `gspread` package.  
-![Tokens data](readme-content/images/development/sheets-tokens.png)  
-![Scores data](readme-content/images/development/sheets-scores.png)
-![Sheets ranges](readme-content/images/development/sheets-ranges.png)
+A local JSON file was used to hold the lists. I went through a few iterations before landing on the current design. I haven't used separate JSON files before, and it was something that I wanted to implement on my previous project [Sorting Hat Quiz](https://github.com/Tom-Ainsworth/sorting-hat-quiz). I first thought of using a Google Sheet to hold the data, however as mentioned in the Initial Concept section, I was brand new to using JSON, and therefore opted to challenge myself. The current version makes use of a nested dictionary within the "Lists" list within the lists.json file. The keys are the list names, and their values are a nested list of tasks or Tu-Du's. This made it easy to access the data, and meant that the object never gets too deep.
 
 ## Technologies Used
 
 ### Python Packages
 
-- [requests](https://pypi.org/project/requests/): enables data retrieval from
-  APIs
-- [gspread](https://pypi.org/project/gspread/): allows communication wit
-  Google Sheets
-- [colorama](https://pypi.org/project/colorama/): allows terminal text to be
-  printed in different colours/styles
-- [random](
-    https://docs.python.org/3/library/random.html?highlight=random#module-random)
-  - shuffle: used to generate random ordering
-  - randrange: returns a random integer within a given range
 - [html](https://docs.python.org/3/library/html.html?highlight=html#module-html)
   - unescape: converts HTML entities to printable characters
 - [time](https://docs.python.org/3/library/time.html#time.sleep)
