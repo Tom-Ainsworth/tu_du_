@@ -156,23 +156,26 @@ content.
 
 ## Logic
 
-I spent some time planning the logic behind the application to ensure I had a
-general idea of how it should be approached. I created flowcharts to allow me
-to follow the logic through the application as it developed. The charts were
-generated using [Draw.io Integration](#technologies-used) and are shown below.
-As can be expected, the flow and features changed over the course of the
-project and so the charts do not accurately reflect all aspects of the end
-product.
+I used flowcharts and bullet lists to map out how the app would work, so that I had a better idea of what needed to be done, and how I could store and call data. At first I wrote down a list of possible functions, and how they would interact with each other. This formed the base for the project, but as I progressed, I found that extra functions, or different approached needed to be taken. I used the Apples built in [Notes](https://en.wikipedia.org/wiki/Notes_(Apple)) app to do the first list mockup here:
+![Notes Plan](readme-content/images/tu-du-list-flow.png)
+[[Lucid.app](https://lucid.app/) to create the flowcharts. It has a variety of symbols and is really intuitive for beginners like me.
 
-### Initial Flow
+### Initial Plan
+
+
+### Main Flow
 
 ![Flow Chart](./readme-content/images/quiz-logic.png)
 
 ---
 
-### Python Logic
+### Create List Flow
 
 ![Flow Chart](./readme-content/images/python-logic.png)
+
+### JSON Data Structure
+
+
 
 ---
 
