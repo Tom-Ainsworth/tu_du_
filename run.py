@@ -91,9 +91,13 @@ from PyInquirer import prompt
 
 
 # main()
-
-with open('lists.json') as f:
+new_data = {}
+test_list = {"User List 2": ["a", "b", "c"]}
+with open('lists.json', 'r', encoding="utf8") as f:
     data = json.load(f)
-    test_list = {"User List 2": ["a", "b", "c"]}
     data["Lists"][-1].update(test_list)
-    print(data)
+    new_data.update(data)
+print(new_data)
+with open('lists.json', 'w', encoding="utf8") as f:
+    json.dump(new_data, f, indent=4)
+    print('data dumped')

@@ -1,10 +1,22 @@
 {
-    "Lists": [{
-        "Example List": [
-            "Brush my teeth", "Go to the gym", "Feed the cat", "Book a haircut"
-        ],
-        "User List 1": [
-            "Task 1", "Task 2", "Task 3"
-        ]
-    }]
+    "Lists": [
+        {
+            "Example List": [
+                "Brush my teeth",
+                "Go to the gym",
+                "Feed the cat",
+                "Book a haircut"
+            ],
+            "User List 1": [
+                "Task 1",
+                "Task 2",
+                "Task 3"
+            ],
+            "User List 2": [
+                "a",
+                "b",
+                "c"
+            ]
+        }
+    ]
 }
