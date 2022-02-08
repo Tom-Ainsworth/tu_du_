@@ -85,8 +85,30 @@ def show_existing_lists():
         answer = prompt(questions[0]).get("question")
         selected_list = data["Lists"][0][answer]
         if answer:
-            tasks = [print(task) for task in selected_list]
+            delay_print('Here are your tasks:\n')
+            tasks = [delay_print(f'{task}\n') for task in selected_list]
+            task_options()
 
+
+def task_options():
+    '''
+    Displays the options to add, or complete a task
+    '''
+
+    menu_choices = {"choices": [
+            "Add a Tu_Du_", "Complete a Tu_Du_", "Return to Main Menu"
+        ]
+    }
+    questions[0].update(menu_choices)
+
+    answer = prompt(questions).get("question")
+    if answer == "Add a Tu_Du_":
+        list_name = input('Name your Tu_Du_')
+        add_new_task()
+    elif answer == "Complete a Tu_Du_":
+        complete_task()
+    else:
+        show_main_menu()
 
 def show_main_menu():
     '''
@@ -116,7 +138,7 @@ def main():
 
     display_intro_text()
     delay_print(
-        '\n          The productivity app that helps you manage your tasks\n'
+        '\n          The productivity app that helps you manage your tasks\n\n'
         )
     show_main_menu()
 
