@@ -77,21 +77,15 @@ def show_existing_lists():
         data = json.load(file)
         list_titles = [title for title in data["Lists"][0]]
 
-        menu_choices = {"choices":
-            list_titles
-        }
+        menu_choices = {
+            "choices": list_titles
+            }
         questions[0].update(menu_choices)
 
         answer = prompt(questions[0]).get("question")
-        if answer == "Create a New List":
-            list_name = input('Choose list name: ')
-            create_new_list(list_name)
-            delay_print(f'\nYour new list: {list_name} has been created...')
-            delay_print(f'\nNow opening {list_name}...')
-        elif answer == "Open Existing List":
-            show_existing_lists()
-        else:
-            show_instructions_page()
+        selected_list = data["Lists"][0][answer]
+        if answer:
+            tasks = [print(task) for task in selected_list]
 
 
 def show_main_menu():
