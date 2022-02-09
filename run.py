@@ -96,21 +96,19 @@ def show_existing_lists():
     Shows exisiting lists for users to open
     '''
 
-    with open('lists.json', 'r', encoding="utf8") as file:
-        data = json.load(file)
-        list_titles = [title for title in data["Lists"][0]]
+    list_titles = [title for title in ALL_LISTS[0]]
 
-        menu_choices = {
-            "choices": list_titles
-            }
-        questions[0].update(menu_choices)
+    menu_choices = {
+        "choices": list_titles
+        }
+    questions[0].update(menu_choices)
 
-        answer = prompt(questions[0]).get("question")
-        selected_list = data["Lists"][0][answer]
-        if answer:
-            delay_print('Here are your tasks:\n')
-            tasks = [delay_print(f'{task}\n') for task in selected_list]
-            task_options(selected_list)
+    answer = prompt(questions[0]).get("question")
+    selected_list = ALL_LISTS[0][answer]
+    if answer:
+        delay_print('Here are your tasks:\n')
+        tasks = [delay_print(f'{task}\n') for task in selected_list]
+        task_options(selected_list)
 
 
 def task_options(selected_list):
