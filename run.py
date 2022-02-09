@@ -65,15 +65,17 @@ def show_existing_lists():
     # Stop Users from editing "Example List"
     if answer == "Example List":
         delay_print('Here are your tasks:\n')
-        tasks = [delay_print(f'{task}\n') for task in selected_list]
+        for task in selected_list:
+            delay_print(f'{task}\n')
         menu_choices = {"choices": ["Return to Main Menu"]}
         questions[0].update(menu_choices)
         answer = prompt(questions[0]).get("question")
         if answer:
             show_main_menu()
     else:
-        delay_print('Here are your tasks:\n')
-        tasks = [delay_print(f'{task}\n') for task in selected_list]
+        delay_print('Here are your Tu_Du_s:\n')
+        for task in selected_list:
+            delay_print(f'{task}\n')
         task_options(selected_list)
 
 
