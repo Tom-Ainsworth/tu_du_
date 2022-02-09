@@ -90,7 +90,6 @@ def show_existing_lists():
     '''
 
     list_titles = [title for title in ALL_LISTS[0]]
-
     menu_choices = {
         "choices": list_titles
         }
@@ -98,7 +97,17 @@ def show_existing_lists():
 
     answer = prompt(questions[0]).get("question")
     selected_list = ALL_LISTS[0][answer]
-    if answer:
+    if answer == "Example List":
+        delay_print('Here are your tasks:\n')
+        tasks = [delay_print(f'{task}\n') for task in selected_list]
+        menu_choices = {
+        "choices": ["Return to Main Menu"]
+        }
+        questions[0].update(menu_choices)
+        answer = prompt(questions[0]).get("question")
+        if answer:
+            show_main_menu()
+    else:
         delay_print('Here are your tasks:\n')
         tasks = [delay_print(f'{task}\n') for task in selected_list]
         task_options(selected_list)
