@@ -83,14 +83,21 @@ def task_options(selected_list):
     '''
     Displays the options to add, or complete a task
     '''
-
-    menu_choices = {"choices": [
+    if not selected_list:
+        delay_print('You have no Tu_Du_s\n')
+        menu_choices = {"choices": [
+            "Add a Tu_Du_", "Return to Main Menu"
+            ]
+            }
+        questions[0].update(menu_choices)
+        answer = prompt(questions).get("question")
+    else:
+        menu_choices = {"choices": [
             "Add a Tu_Du_", "Complete a Tu_Du_", "Return to Main Menu"
-        ]
-    }
-    questions[0].update(menu_choices)
-
-    answer = prompt(questions).get("question")
+            ]
+            }
+        questions[0].update(menu_choices)
+        answer = prompt(questions).get("question")
     if answer == "Add a Tu_Du_":
         # Adds user inputted task and returns to main menu
         task_name = input('Name your Tu_Du_')
@@ -99,12 +106,20 @@ def task_options(selected_list):
         delay_print(f'\n{task_name} has now been added')
         show_main_menu()
     elif answer == "Complete a Tu_Du_":
-        print(selected_list)
+        selected_list.append("Return to main menu")
         menu_choices = {"choices": selected_list}
         questions[0].update(menu_choices)
         answer = prompt(questions).get("question")
-        if answer:
+        if answer == "Return to main menu":
+            show_main_menu()
+        else:
+            delay_print(
+                f"\nWell Done, You've completed your Tu_Du: {answer}!\n"
+                )
             selected_list.remove(answer)
+            delay_print(
+                f'{answer} has been removed. Now returning to main menu.\n'
+                )
             show_main_menu()
     else:
         show_main_menu()
