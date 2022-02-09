@@ -1,18 +1,12 @@
 '''Run a to do list via a CLI'''
 
 from __future__ import print_function, unicode_literals
-import json
 import sys
 from time import sleep
-
-# from prompt_toolkit import prompt
 from art import tprint
 from PyInquirer import prompt
 
-# Constants for reading lists.json file
-file = open('lists.json', encoding="utf-8")
-LISTS_CONTAINER = json.load(file)
-ALL_LISTS = LISTS_CONTAINER["Lists"]
+from tasks import create_new_list
 
 # Prompt list format
 questions = [
@@ -51,23 +45,6 @@ def delay_print(string):
     sleep(1)
 
 
-def create_new_list(list_name):
-    '''
-    Creates a list from a user input and dumps it into lists.json
-    '''
-
-    new_user_list = {list_name: []}
-    delay_print(f'\nYour new list: {list_name} is being created...')
-
-    ALL_LISTS[-1].update(new_user_list)
-    print(ALL_LISTS)
-
-    delay_print(f'\n{list_name} has now been created')
-    print(LISTS_CONTAINER)
-
-    show_main_menu()
-
-
 def add_new_task(selected_list, task_name):
     '''
     Creates a list from a user input and dumps it into lists.json
@@ -97,12 +74,11 @@ def show_existing_lists():
 
     answer = prompt(questions[0]).get("question")
     selected_list = ALL_LISTS[0][answer]
+    # Stop Users from editing "Example List"
     if answer == "Example List":
         delay_print('Here are your tasks:\n')
         tasks = [delay_print(f'{task}\n') for task in selected_list]
-        menu_choices = {
-        "choices": ["Return to Main Menu"]
-        }
+        menu_choices = {"choices": ["Return to Main Menu"]}
         questions[0].update(menu_choices)
         answer = prompt(questions[0]).get("question")
         if answer:
@@ -148,7 +124,10 @@ def show_main_menu():
     answer = prompt(questions).get("question")
     if answer == "Create a New List":
         list_name = input('Choose list name: ')
+        delay_print(f'\nYour new list: {list_name} is being created...')
         create_new_list(list_name)
+        delay_print(f'\n{list_name} has now been created')
+        show_main_menu()
     elif answer == "Open Existing List":
         show_existing_lists()
     else:
