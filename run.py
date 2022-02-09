@@ -68,6 +68,28 @@ def create_new_list(list_name):
     show_main_menu()
 
 
+def add_new_task(selected_list, task_name):
+    '''
+    Creates a list from a user input and dumps it into lists.json
+    '''
+    print(selected_list)
+    # Empty dict used to write to lists.json
+    new_data = {}
+
+    delay_print(f'\nYour new Tu_Du_: {task_name} is being added...')
+    with open('lists.json', 'r', encoding="utf8") as file:
+        data = json.load(file)
+        selected_list.append(task_name)
+        new_data.update(data)
+
+    with open('lists.json', 'w', encoding="utf8") as file:
+        json.dump(new_data, file, indent=4)
+
+    delay_print(f'\n{task_name} has now been added')
+
+    show_main_menu()
+
+
 def show_existing_lists():
     '''
     Shows exisiting lists for users to open
@@ -87,10 +109,10 @@ def show_existing_lists():
         if answer:
             delay_print('Here are your tasks:\n')
             tasks = [delay_print(f'{task}\n') for task in selected_list]
-            task_options()
+            task_options(selected_list)
 
 
-def task_options():
+def task_options(selected_list):
     '''
     Displays the options to add, or complete a task
     '''
@@ -103,12 +125,13 @@ def task_options():
 
     answer = prompt(questions).get("question")
     if answer == "Add a Tu_Du_":
-        list_name = input('Name your Tu_Du_')
-        add_new_task()
+        task_name = input('Name your Tu_Du_')
+        add_new_task(selected_list, task_name)
     elif answer == "Complete a Tu_Du_":
         complete_task()
     else:
         show_main_menu()
+
 
 def show_main_menu():
     '''
