@@ -99,7 +99,13 @@ def task_options(selected_list):
         delay_print(f'\n{task_name} has now been added')
         show_main_menu()
     elif answer == "Complete a Tu_Du_":
-        complete_task()
+        print(selected_list)
+        menu_choices = {"choices": selected_list}
+        questions[0].update(menu_choices)
+        answer = prompt(questions).get("question")
+        if answer:
+            selected_list.remove(answer)
+            show_main_menu()
     else:
         show_main_menu()
 
