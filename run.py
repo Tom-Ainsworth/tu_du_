@@ -9,6 +9,11 @@ from time import sleep
 from art import tprint
 from PyInquirer import prompt
 
+# Constants for reading lists.json file
+file = open('lists.json')
+LISTS_CONTAINER = json.load(file)
+ALL_LISTS = LISTS_CONTAINER["Lists"]
+
 # Prompt list format
 questions = [
         {
