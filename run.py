@@ -2,11 +2,15 @@
 
 from __future__ import print_function, unicode_literals
 import sys
+import json
 from time import sleep
 from art import tprint
 from PyInquirer import prompt
 
-from tasks import create_new_list
+# Constants for reading lists.json file
+file = open('lists.json', encoding="utf-8")
+LISTS_CONTAINER = json.load(file)
+ALL_LISTS = LISTS_CONTAINER["Lists"]
 
 # Prompt list format
 questions = [
@@ -43,22 +47,6 @@ def delay_print(string):
         sys.stdout.flush()
         sleep(0.05)
     sleep(1)
-
-
-def add_new_task(selected_list, task_name):
-    '''
-    Creates a list from a user input and dumps it into lists.json
-    '''
-    print(selected_list)
-
-    delay_print(f'\nYour new Tu_Du_: {task_name} is being added...')
-
-    selected_list.append(task_name)
-
-    delay_print(f'\n{task_name} has now been added')
-    print(selected_list)
-
-    show_main_menu()
 
 
 def show_existing_lists():
@@ -102,8 +90,12 @@ def task_options(selected_list):
 
     answer = prompt(questions).get("question")
     if answer == "Add a Tu_Du_":
+        # Adds user inputted task and returns to main menu
         task_name = input('Name your Tu_Du_')
-        add_new_task(selected_list, task_name)
+        delay_print(f'\nYour new Tu_Du_: {task_name} is being added...')
+        selected_list.append(task_name)
+        delay_print(f'\n{task_name} has now been added')
+        show_main_menu()
     elif answer == "Complete a Tu_Du_":
         complete_task()
     else:
@@ -125,7 +117,8 @@ def show_main_menu():
     if answer == "Create a New List":
         list_name = input('Choose list name: ')
         delay_print(f'\nYour new list: {list_name} is being created...')
-        create_new_list(list_name)
+        new_user_list = {list_name: []}
+        ALL_LISTS[-1].update(new_user_list)
         delay_print(f'\n{list_name} has now been created')
         show_main_menu()
     elif answer == "Open Existing List":
