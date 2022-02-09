@@ -57,18 +57,14 @@ def create_new_list(list_name):
     '''
 
     # Empty dict used to write to lists.json
-    new_data = {}
     new_user_list = {list_name: []}
     delay_print(f'\nYour new list: {list_name} is being created...')
-    with open('lists.json', 'r', encoding="utf8") as file:
-        data = json.load(file)
-        data["Lists"][-1].update(new_user_list)
-        new_data.update(data)
-
-    with open('lists.json', 'w', encoding="utf8") as file:
-        json.dump(new_data, file, indent=4)
+    
+    ALL_LISTS[-1].update(new_user_list)
+    print(ALL_LISTS)
 
     delay_print(f'\n{list_name} has now been created')
+    print(LISTS_CONTAINER)
 
     show_main_menu()
 
