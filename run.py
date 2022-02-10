@@ -1,18 +1,19 @@
 '''Run a to do list via a CLI'''
 
 from __future__ import print_function, unicode_literals
-import sys
 import json
 from time import sleep
 from art import tprint
 from PyInquirer import prompt
 
 from instructions import show_instructions_page
+from printing import delay_print, fast_delay_print
 
 # Constants for reading lists.json file
 file = open('lists.json', encoding="utf-8")
 LISTS_CONTAINER = json.load(file)
 ALL_LISTS = LISTS_CONTAINER["Lists"]
+LIST_NAMES = ALL_LISTS[0].keys()
 
 # Prompt list format
 questions = [
@@ -39,26 +40,13 @@ def display_intro_text():
     print(f"{'=' * 80}")
 
 
-def delay_print(string):
-    '''
-    Prints out a string 1 character at a time to aid readability for users
-    '''
-
-    for character in string:
-        sys.stdout.write(character)
-        sys.stdout.flush()
-        sleep(0.05)
-    sleep(1)
-
-
 def show_existing_lists():
     '''
     Shows exisiting lists for users to open
     '''
 
-    list_titles = [title for title in ALL_LISTS[0]]
     menu_choices = {
-        "choices": list_titles
+        "choices": LIST_NAMES
         }
     questions[0].update(menu_choices)
 
@@ -68,7 +56,7 @@ def show_existing_lists():
     if answer == "Example List":
         delay_print('Here are your tasks:\n')
         for task in selected_list:
-            delay_print(f'{task}\n')
+            fast_delay_print(f'{task}\n')
         menu_choices = {"choices": ["Return to Main Menu"]}
         questions[0].update(menu_choices)
         answer = prompt(questions[0]).get("question")
@@ -77,7 +65,7 @@ def show_existing_lists():
     else:
         delay_print('Here are your Tu_Du_s:\n')
         for task in selected_list:
-            delay_print(f'{task}\n')
+            fast_delay_print(f'{task}\n')
         task_options(selected_list)
 
 
@@ -86,7 +74,7 @@ def task_options(selected_list):
     Displays the options to add, or complete a task
     '''
     if not selected_list:
-        delay_print('You have no Tu_Du_s\n')
+        delay_print('You have no Tu_Du_s...\n')
         menu_choices = {"choices": [
             "Add a Tu_Du_", "Return to Main Menu"
             ]
@@ -102,7 +90,7 @@ def task_options(selected_list):
         answer = prompt(questions).get("question")
     if answer == "Add a Tu_Du_":
         # Adds user inputted task and returns to main menu
-        task_name = input('Name your Tu_Du_')
+        task_name = input('Name your Tu_Du_ ')
         delay_print(f'\nYour new Tu_Du_: {task_name} is being added...')
         selected_list.append(task_name)
         delay_print(f'\n{task_name} has now been added')
@@ -150,6 +138,11 @@ def show_main_menu():
         show_existing_lists()
     else:
         show_instructions_page()
+        menu_choices = {"choices": ["Return to main menu"]}
+        questions[0].update(menu_choices)
+        answer = prompt(questions).get("question")
+        if answer == "Return to main menu":
+            show_main_menu()
 
 
 def main():
