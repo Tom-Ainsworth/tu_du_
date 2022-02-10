@@ -149,7 +149,7 @@ def show_main_menu():
     elif answer == "Open Existing List":
         show_existing_lists()
     else:
-        delay_print(f'{show_instructions_page()}')
+        show_instructions_page()
 
 
 def main():
