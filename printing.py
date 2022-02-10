@@ -29,7 +29,3 @@ def fast_delay_print(string):
         sys.stdout.flush()
         sleep(0.03)
     sleep(0.5)
-
-
-fast_delay_print("Test String fast")
-delay_print('test string slow')

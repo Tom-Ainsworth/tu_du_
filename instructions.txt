@@ -1,0 +1,34 @@
+================================================================================
+Thank you for choosing Tu_Du to organise your tasks. While every attempt to 
+simplify the app has been made, here is a guide on how to get the most out of 
+Tu_Du_
+
+As you have hopefully realised by getting to this page, you navigate the app 
+using the arrow keys on your keyboard, and then press 'Enter' to confirm
+your selection.
+
+The main menu gives you options to create a new list, show existing lists,
+and then show instructions page - where you are now.
+
+Create a new list does exactly that. It will create a new Tu_Du_ list which can
+then be populated with as many tasks (Tu_Du_s) as you wish.
+
+Show existing lists will display all of the lists that have currently been 
+created, including an Example list so you can see how a pre-made list looks.
+From here you can select a list or return to the main menu. If you opt to
+select a list, you get the following options:
+
+Add a Tu_Du_
+
+Complete a Tu_Du_
+
+Return to the Main Menu.
+
+
+Add a Tu_Du_ will prompt you to name a new task to add to the current list.
+
+Complete a Tu_Du_ will show you all of the tasks in the list, and let you
+choose which one you would like to complete.
+
+Return to Main Menu will take you back to you back to the start.
+
