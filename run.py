@@ -7,6 +7,8 @@ from time import sleep
 from art import tprint
 from PyInquirer import prompt
 
+from instructions import show_instructions_page
+
 # Constants for reading lists.json file
 file = open('lists.json', encoding="utf-8")
 LISTS_CONTAINER = json.load(file)
@@ -147,7 +149,7 @@ def show_main_menu():
     elif answer == "Open Existing List":
         show_existing_lists()
     else:
-        show_instructions_page()
+        delay_print(f'{show_instructions_page()}')
 
 
 def main():
