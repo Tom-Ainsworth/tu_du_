@@ -10,7 +10,7 @@ from instructions import show_instructions_page
 from printing import delay_print, fast_delay_print
 
 # Constants for reading lists.json file
-file = open('lists.json', encoding="utf-8")
+file = open('lists.json', 'r', encoding="utf-8")
 LISTS_CONTAINER = json.load(file)
 ALL_LISTS = LISTS_CONTAINER["Lists"]
 LIST_NAMES = ALL_LISTS[0].keys()
@@ -115,13 +115,28 @@ def task_options(selected_list):
         show_main_menu()
 
 
+def save_all_lists():
+    '''
+    Saves all current lists and tasks to lists.json
+    for user to come back to later.
+    '''
+    new_list_data = {}
+    new_list_data.update(LISTS_CONTAINER)
+    print(new_list_data)
+
+    with open('lists.json', 'w', encoding="utf-8") as updated_json:
+        json.dump(new_list_data, updated_json, indent=4)
+        print(updated_json)
+
+
 def show_main_menu():
     '''
     Displays the user options featured at the start of the app
     '''
 
     menu_choices = {"choices": [
-            "Create a New List", "Open Existing List", "Instructions Page"
+            "Create a New List", "Open Existing List",
+            "Instructions Page", "Save All Lists"
         ]
     }
     questions[0].update(menu_choices)
@@ -136,6 +151,14 @@ def show_main_menu():
         show_main_menu()
     elif answer == "Open Existing List":
         show_existing_lists()
+    elif answer == "Save All Lists":
+        delay_print('Now saving all lists...')
+        save_all_lists()
+        delay_print('Your lists have been saved...')
+        sleep(1)
+        delay_print('Now returning to Main Menu...')
+        sleep(1)
+        show_main_menu()
     else:
         show_instructions_page()
         menu_choices = {"choices": ["Return to main menu"]}

@@ -6,8 +6,17 @@ As you have hopefully realised by getting to this page, you navigate the app
 using the arrow keys on your keyboard, and then press 'Enter' to confirm
 your selection.
 
-The main menu gives you options to create a new list, show existing lists,
-and then show instructions page - where you are now.
+The main menu gives you the following options:
+
+Create a new List
+
+Show Existing Lists
+
+Save Lists
+
+Reset Lists
+
+Show Instructions Page - where you are now.
 
 Create a new list does exactly that. It will create a new Tu_Du_ list which can
 then be populated with as many tasks (Tu_Du_s) as you wish.
