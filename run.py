@@ -129,6 +129,28 @@ def save_all_lists():
         print(updated_json)
 
 
+def reset_all_lists():
+    '''
+    Removes all user lists apart from example list
+    '''
+
+    new_list_data = {
+        "Lists": [
+            {
+                "Example List": [
+                    "Brush my teeth",
+                    "Go to the gym",
+                    "Feed the cat",
+                    "Book a haircut"
+                ]
+            }
+        ]
+    }
+    with open('lists.json', 'w', encoding="utf-8") as updated_json:
+        json.dump(new_list_data, updated_json, indent=4)
+        print(updated_json)
+
+
 def show_main_menu():
     '''
     Displays the user options featured at the start of the app
@@ -136,7 +158,7 @@ def show_main_menu():
 
     menu_choices = {"choices": [
             "Create a New List", "Open Existing List",
-            "Instructions Page", "Save All Lists"
+            "Instructions Page", "Save All Lists", "Reset all Lists"
         ]
     }
     questions[0].update(menu_choices)
@@ -158,6 +180,11 @@ def show_main_menu():
         sleep(1)
         delay_print('Now returning to Main Menu...')
         sleep(1)
+        show_main_menu()
+    elif answer == "Reset all Lists":
+        delay_print("Resetting all User Lists...")
+        reset_all_lists()
+        delay_print("All lists have been reset. Now returning to main menu")
         show_main_menu()
     else:
         show_instructions_page()
