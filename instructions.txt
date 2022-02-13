@@ -1,50 +1,48 @@
 
-        Thank you for choosing Tu_Du to organise your tasks. While every
-        attempt to simplify the app has been made, here is a guide on
+        Thank you for choosing Tu_Du to organise your tasks. Here is a guide on
         how to get the most out of Tu_Du_
         
-        As you may have realised by getting to this page, you navigate
-        the app using the arrow keys on your keyboard, and then press
+        To navigate the app, use the arrow keys on your keyboard, and then press
         'Enter' to confirm your selection.
 
         The main menu gives you the following options:
-        1. Create a new List
+        1. Create a New List
         2. Show Existing Lists
-        3. Instructions Page - Where you are now
+        3. Instructions Page (where you are now)
         4. Save Lists
         5. Reset Lists 
         
-        1. Create a new list does exactly that. It will create a new Tu_Du_
+        1. 'Create a New List' does exactly that. It will create a new Tu_Du_
         list which can then be populated with as many tasks (Tu_Du_s) as
         you wish.
         
-        2. Show existing lists will display all of the lists that have
-        currently been created, including an Example list so you can see
-        how a pre-made list looks. From here you can select a list or
-        return to the main menu. If you opt to select a list, you get
+        2. 'Show Existing Lists' will display all of the Lists that have
+        been created, including an Example List so you can see
+        how a pre-made List looks. From here you can select a List or
+        return to the main menu. If you opt to select a List, you get
         the following options:
         
             1. Add a Tu_Du_
             2. Complete a Tu_Du_
             3. Return to the Main Menu.
         
-            Add a Tu_Du_ will prompt you to name a new task to add to the
+            'Add a Tu_Du_' will prompt you to name a new task to add to the
             current list.
 
-            Complete a Tu_Du_ will show you all of the tasks in the list,
+            'Complete a Tu_Du_' will show you all of the tasks in the list,
             and let you choose which one you would like to complete.
         
-            Return to Main Menu will take you back to you back to the start.
+            'Return to Main Menu' will take you back to you back to the start.
 
-        3. Instructions Page, strangley enough will bring you here, where
+        3. 'Instructions Page' will bring you here, where
         you're hopefully learning how to use the app.
 
-        4. Save all lists will commit all current lists and Tu_Du_s to
+        4. 'Save All Lists' will commit all current lists and Tu_Du_s to
         memory, for use at a later time.
 
-        5. Reset all lists will revert the app back to beginning, where
-        only the Example List will appear. If you do not Save or Reset
-        the lists, it will revert back when you relaunch the app.
+        5. 'Reset All Lists' will revert the app back to the beginning, where
+        only the Example List will appear. If you relaunch the app without
+        Saving your Lists, they will be lost.
 
         I hope you enjoy using Tu_Du_
         I had a lot of fun building it!
