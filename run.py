@@ -122,11 +122,9 @@ def save_all_lists():
     '''
     new_list_data = {}
     new_list_data.update(LISTS_CONTAINER)
-    print(new_list_data)
 
     with open('lists.json', 'w', encoding="utf-8") as updated_json:
         json.dump(new_list_data, updated_json, indent=4)
-        print(updated_json)
 
 
 def reset_all_lists():
@@ -134,7 +132,7 @@ def reset_all_lists():
     Removes all user lists apart from example list
     '''
 
-    new_list_data = {
+    starting_list_data = {
         "Lists": [
             {
                 "Example List": [
@@ -147,9 +145,7 @@ def reset_all_lists():
         ]
     }
     with open('lists.json', 'w', encoding="utf-8") as updated_json:
-        json.dump(new_list_data, updated_json, indent=4)
-        print(updated_json)
-
+        json.dump(starting_list_data, updated_json, indent=4)
 
 def show_main_menu():
     '''
