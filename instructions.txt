@@ -1,4 +1,4 @@
-================================================================================
+
         Thank you for choosing Tu_Du to organise your tasks. Here is a
         guide on how to get the most out of Tu_Du_
         
@@ -32,7 +32,7 @@
             'Complete a Tu_Du_' will show you all of the tasks in the
             list, and let you choose which one you would like to complete.
         
-            'Return to Main Menu' will take you back to you back to the
+            'Return to Main Menu' will take you back to the
             start.
 
         3. 'Instructions Page' will bring you here, where you're hopefully
