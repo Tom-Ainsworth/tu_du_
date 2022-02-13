@@ -135,6 +135,7 @@ def save_all_lists():
 
     with open('lists.json', 'w', encoding="utf-8") as updated_json:
         json.dump(new_list_data, updated_json, indent=4)
+    LISTS_CONTAINER.update(new_list_data)
 
 
 def reset_all_lists():
@@ -156,7 +157,10 @@ def reset_all_lists():
     }
     with open('lists.json', 'w', encoding="utf-8") as updated_json:
         json.dump(starting_list_data, updated_json, indent=4)
-    ALL_LISTS.update(starting_list_data)
+    LISTS_CONTAINER.update(starting_list_data)
+    global LIST_NAMES, ALL_LISTS
+    ALL_LISTS = LISTS_CONTAINER["Lists"]
+    LIST_NAMES = ALL_LISTS[0].keys()
 
 
 def show_main_menu():
