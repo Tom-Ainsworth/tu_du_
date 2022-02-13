@@ -94,10 +94,9 @@ def task_options(selected_list):
         delay_print(f'\nYour new Tu_Du_: {task_name} is being added...')
         selected_list.append(task_name)
         delay_print(f'\n{task_name} has now been added')
-        show_main_menu()
+        answer = prompt(questions).get("question")
     elif answer == "Complete a Tu_Du_":
-        selected_list.append("Return to main menu")
-        menu_choices = {"choices": selected_list}
+        menu_choices = {"choices": get_menu_options(selected_list)}
         questions[0].update(menu_choices)
         answer = prompt(questions).get("question")
         if answer == "Return to main menu":
@@ -113,6 +112,16 @@ def task_options(selected_list):
             show_main_menu()
     else:
         show_main_menu()
+
+
+def get_menu_options(selected_list):
+    '''
+    dfgb
+    '''
+
+    menu_choices = selected_list.copy()
+    menu_choices.append("Return to main menu")
+    return menu_choices
 
 
 def save_all_lists():
