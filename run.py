@@ -94,7 +94,7 @@ def task_options(selected_list):
         delay_print(f'\nYour new Tu_Du_: {task_name} is being added...')
         selected_list.append(task_name)
         delay_print(f'\n{task_name} has now been added')
-        answer = prompt(questions).get("question")
+        task_options(selected_list)
     elif answer == "Complete a Tu_Du_":
         menu_choices = {"choices": get_menu_options(selected_list)}
         questions[0].update(menu_choices)
@@ -107,16 +107,17 @@ def task_options(selected_list):
                 )
             selected_list.remove(answer)
             delay_print(
-                f'{answer} has been removed. Now returning to main menu.\n'
+                f'{answer} has been removed.\n'
                 )
-            show_main_menu()
+            task_options(selected_list)
     else:
         show_main_menu()
 
 
 def get_menu_options(selected_list):
     '''
-    dfgb
+    Populates the choices with all tasks and
+    "return to main menu" so users can leave the loop"
     '''
 
     menu_choices = selected_list.copy()
@@ -155,6 +156,7 @@ def reset_all_lists():
     }
     with open('lists.json', 'w', encoding="utf-8") as updated_json:
         json.dump(starting_list_data, updated_json, indent=4)
+    ALL_LISTS.update(starting_list_data)
 
 
 def show_main_menu():
