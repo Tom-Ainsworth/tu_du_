@@ -54,7 +54,7 @@ def show_existing_lists():
     selected_list = ALL_LISTS[0][answer]
     # Stop Users from editing "Example List"
     if answer == "Example List":
-        delay_print('Here are your tasks:\n')
+        delay_print('Here are your Tu_Du_s:\n')
         for task in selected_list:
             fast_delay_print(f'{task}\n')
         menu_choices = {"choices": ["Return to Main Menu"]}
@@ -154,13 +154,20 @@ def show_main_menu():
     '''
 
     menu_choices = {"choices": [
-            "Create a New List", "Open Existing List",
-            "Instructions Page", "Save All Lists", "Reset all Lists"
+            "Instructions Page", "Create a New List", "Open Existing List",
+            "Save All Lists", "Reset all Lists"
         ]
     }
     questions[0].update(menu_choices)
 
     answer = prompt(questions).get("question")
+    if answer == "Instructions Page":
+        show_instructions_page()
+        menu_choices = {"choices": ["Return to main menu"]}
+        questions[0].update(menu_choices)
+        answer = prompt(questions).get("question")
+        if answer == "Return to main menu":
+            show_main_menu()
     if answer == "Create a New List":
         list_name = input('Choose list name: ')
         delay_print(f'\nYour new list: {list_name} is being created...')
@@ -168,9 +175,9 @@ def show_main_menu():
         ALL_LISTS[-1].update(new_user_list)
         delay_print(f'\n{list_name} has now been created')
         show_main_menu()
-    elif answer == "Open Existing List":
+    if answer == "Open Existing List":
         show_existing_lists()
-    elif answer == "Save All Lists":
+    if answer == "Save All Lists":
         delay_print('Now saving all lists...')
         save_all_lists()
         delay_print('Your lists have been saved...')
@@ -178,18 +185,11 @@ def show_main_menu():
         delay_print('Now returning to Main Menu...')
         sleep(1)
         show_main_menu()
-    elif answer == "Reset all Lists":
+    if answer == "Reset all Lists":
         delay_print("Resetting all User Lists...")
         reset_all_lists()
         delay_print("All lists have been reset. Now returning to main menu")
         show_main_menu()
-    else:
-        show_instructions_page()
-        menu_choices = {"choices": ["Return to main menu"]}
-        questions[0].update(menu_choices)
-        answer = prompt(questions).get("question")
-        if answer == "Return to main menu":
-            show_main_menu()
 
 
 def main():

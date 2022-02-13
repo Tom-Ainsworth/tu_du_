@@ -6,17 +6,20 @@
         then press 'Enter' to confirm your selection.
 
         The main menu gives you the following options:
-        1. Create a New List
-        2. Show Existing Lists
-        3. Instructions Page (where you are now)
+        1. Instructions Page (where you are now)
+        2. Create a New List
+        3. Show Existing Lists 
         4. Save Lists
         5. Reset Lists 
         
-        1. 'Create a New List' does exactly that. It will create a
+        1. 'Instructions Page' will bring you here, where you're hopefully
+        learning how to use the app.
+        
+        2. 'Create a New List' does exactly that. It will create a
         new Tu_Du_ List which can then be populated with as many tasks
         (Tu_Du_s) as you wish.
         
-        2. 'Show Existing Lists' will display all of the Lists that
+        3. 'Show Existing Lists' will display all of the Lists that
         have been created, including an Example List so you can see
         how a pre-made List looks. From here you can select a List or
         return to the main menu. If you opt to select a List, you get
@@ -35,8 +38,6 @@
             'Return to Main Menu' will take you back to the
             start.
 
-        3. 'Instructions Page' will bring you here, where you're hopefully
-        learning how to use the app.
 
         4. 'Save All Lists' will commit all current lists and Tu_Du_s to
         memory, for use at a later time.
