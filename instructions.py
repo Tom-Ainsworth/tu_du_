@@ -4,7 +4,7 @@ Shows the instructions for Tu_Du
 
 from time import sleep
 from art import tprint
-from printing import delay_print, fast_delay_print
+from printing import fast_delay_print
 
 
 def show_instructions_page():
@@ -19,4 +19,4 @@ def show_instructions_page():
     sleep(0.5)
     with open('instructions.txt', 'r', encoding="utf-8") as file:
         lines = file.read()
-        delay_print(lines)
+        fast_delay_print(lines)

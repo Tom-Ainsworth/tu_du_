@@ -147,6 +147,7 @@ def reset_all_lists():
     with open('lists.json', 'w', encoding="utf-8") as updated_json:
         json.dump(starting_list_data, updated_json, indent=4)
 
+
 def show_main_menu():
     '''
     Displays the user options featured at the start of the app
