@@ -204,7 +204,7 @@ def show_main_menu():
         delay_print("Resetting all User Lists...\n")
         reset_all_lists()
         delay_print(
-            "All lists have been reset.\n Now returning to main menu\n"
+            "All lists have been reset.\nNow returning to main menu\n"
             )
         show_main_menu()
 
