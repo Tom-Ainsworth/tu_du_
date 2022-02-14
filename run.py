@@ -183,13 +183,16 @@ def show_main_menu():
         answer = prompt(questions).get("question")
         if answer == "Return to main menu":
             show_main_menu()
-    if answer == "Create a New List":
+    while answer == "Create a New List":
         list_name = input('Choose list name: ')
-        delay_print(f'\nYour new list: {list_name} is being created...')
-        new_user_list = {list_name: []}
-        ALL_LISTS[-1].update(new_user_list)
-        delay_print(f'\n{list_name} has now been created\n')
-        show_main_menu()
+        if not list_name.strip():
+            delay_print("Error: Please choose a name for your list\n")
+        else:
+            delay_print(f'\nYour new list: {list_name} is being created...')
+            new_user_list = {list_name: []}
+            ALL_LISTS[-1].update(new_user_list)
+            delay_print(f'\n{list_name} has now been created\n')
+            show_main_menu()
     if answer == "Open Existing List":
         show_existing_lists()
     if answer == "Save All Lists":
