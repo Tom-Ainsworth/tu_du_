@@ -1,6 +1,5 @@
 '''Run a to do list via a CLI'''
 
-from __future__ import print_function, unicode_literals
 import json
 from time import sleep
 from art import tprint

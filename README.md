@@ -217,14 +217,21 @@ I used flowcharts and bullet lists to map out how the app would work, so that I 
 
 ### Features Left to Implement
 
-At present, I am happy with the features in the program. Possible additions
-could include:
+I am really pleased with the final result of this app. To further develop it,
+the following features would be very useful:
 
-- a category option - for users not interested in computers
-- personal tokens - to further reduce the likelihood of repeated questions
-- a larger scores database - over time, the top scores may be difficult for
-    some users to reach. A larger database would allow for recognition of the
-    position achieved if it is not within the top ten
+- Username and/or Password validation
+  - Users can currently Save or Reset lists, but should another
+  user use the app, they could overwrite the original work.
+- Completed Tasks score
+  - Users get a message once they have completed a Tu_Du_, but knowing how many they
+    have completed in total would create a positive emotional response.
+- Mouse Click support
+  - Currently the app relies on up/down/enter keys to choose options. PyInquirer does support
+    mouseclicks, however with the options being so close together, I opted not to add this yet
+    to avoid unwanted user error and frustration.
+- Nested lists
+  - Should a user want to create a subfolder within a primary list, this could be quite useful.
 
 ---
 
@@ -236,81 +243,39 @@ A local JSON file was used to hold the lists. I went through a few iterations be
 
 ### Python Packages
 
-- [html](https://docs.python.org/3/library/html.html?highlight=html#module-html)
-  - unescape: converts HTML entities to printable characters
+- [json](https://www.json.org/json-en.html)
+  - JavaScript Object Notation, used for displaying and storing all lists and tasks. (See Data Model Section)
 - [time](https://docs.python.org/3/library/time.html#time.sleep)
   - sleep: stalls the program for a defined time
-- [google.oauth2.service_account](
-    https://google-auth.readthedocs.io/en/stable/index.html)
-  - Credentials: used to validate credentials and grant access to google
-    service accounts
-- [better_profanity](https://pypi.org/project/better-profanity/)
-  - profanity: simple profanity checker
-- [py-getch](https://github.com/joeyespo/py-getch)
-  - pause: used to provide a *'Press any key to continue...'* function
+- [art](https://pypi.org/project/art/)
+  - tprint: Prints blown up strings in various fonts. I chose the default,
+    but there are some really interesting ones! 
+- [PyInquirer](https://pypi.org/project/PyInquirer/)
+  - prompt: Define a list of questions and hand them to "Prompt" which gives
+    back a list of "Choices" to be selected. Used for all of the menus.
 
 ---
 
 ### Other Tech
 
-- *[Instant Eyedropper](http://instant-eyedropper.com/)*
-  - A quick and simple application to obtain hex values from any colour on my
-  display. I downloaded this while playing around with my laptop layout/display
-  settings. I have the app set to run on startup and remain minimized in my
-  system tray. This allows quick access and if I click the colour, it
-  automatically copies the value to my clipboard.
-- *[WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)*
-  - A basic contrast checking service for conformity to the Web Content
-  Accessibility Guidelines. The service allows input of a foreground and
-  background colour and displays the resulting contrast ratio, including a quick
-  reference to meeting WCAG AA / AAA standards.
-- *[Windows Snipping Tool](https://support.microsoft.com/en-us/windows/use-snipping-tool-to-capture-screenshots-00246869-1843-655f-f220-97299b865f6b)*
-  - A screenshot tool built in to Windows. It allows quick, partial screenshots
-  to be taken that can be saved as image files.
+- *[Python](https://en.wikipedia.org/wiki/Python_(programming_language))*
+  - Used to create the content of the app itself.
+- *[HTML](https://en.wikipedia.org/wiki/HTML)*
+  - Code Institute template files to create the terminal when deployed.
+- *[CSS](https://en.wikipedia.org/wiki/CSS)*
+  - Code Institute template files to create the terminal when deployed.
+- *[JavaScript](https://en.wikipedia.org/wiki/JavaScript)*
+  - Code Institute template files to create the terminal when deployed.
 - *[Balsamiq](https://balsamiq.com/)*
-  - Balsamiq was used to create [wireframes](./readme-content/wireframes.md)
-  for the project.
-- *[Adobe Photoshop](https://www.adobe.com/uk/)*
-  - The background image was modified and converted using this image editing
-  software
-- *[Font Awesome](https://fontawesome.com/)*
-  - The project uses icons from Font Awesome version 5.
-- *[Google Fonts](https://fonts.google.com/)*
-  - The fonts used in the website are imported from Google Fonts.
-- *[Multi Device Mockup Generator](https://techsini.com/multi-mockup/index.php)*
-  - The image at the top of this document was created using a free service
-  provided by TechSini.&#8203;com
-- *[W3C Markup Validation Service](validator.w3.org)*
-  - A service to check the HTML and CSS files for errors. During
-  development, I copied the entire text from the files and ran them through the
-  direct input method. Upon completion, I ran the deployed site through the
-  'Validate by URI' method with [results here](#w3c-validator).
+  - Balsamiq was used to create wireframes for the project.
 - *[PEP8 online](http://pep8online.com/)*
   - An online Python code validation service.
-- *[Visual Studio Code](https://code.visualstudio.com/)*
-  - A free, streamlined code editor. The [extensions](#vscode-extensions)
-  available have allowed me to customize my workspace and become more
-  efficient.
-
----
-
-#### VSCode Extensions
-
-Links to the VSCode marketplace for each extension used throughout this project:
-
-- [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-- [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
-- [Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2)
-- [GitHub Pull Request and Issue Provider](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
-- [Highlight Matching Tag](https://marketplace.visualstudio.com/items?itemName=vincaslt.highlight-matching-tag)
-- [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
-- [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
-- [Preview on Web Server](https://marketplace.visualstudio.com/items?itemName=yuichinukiyama.vscode-preview-server)
-- [Colored Regions](https://marketplace.visualstudio.com/items?itemName=mihelcic.colored-regions)
-- [Reflow Markdown](https://marketplace.visualstudio.com/items?itemName=marvhen.reflow-markdown)
-- [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)
-- [Draw.io](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio)
-- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+- *[Heroku](https://www.heroku.com/)*
+  - Used to deploy and host the app
+- *[Gitpod](https://www.gitpod.io/)*
+  - IDE used for creation and version control via Github.
+- *[Tiny PNG](https://tinypng.com/)*
+  - Used to compress all images features in this readme.
 
 ---
 
@@ -325,16 +290,26 @@ multiple tests on the deployed site and during the development stage to ensure
 data is handled correctly and all functions are carrying out their intended
 actions.
 
-##### Manual Testing Documentation
+Where user inputs are required, strip() has been used to test for empty inputs,
+or whitespace inputs.
 
-[Documentation can be view here](./readme-content/testing.md)
+All other functions of the app use the Prompt feature, so users can only select from
+a list of set inputs.
+
+There were only 2 warnings found, one is a known error. The other is because I used
+the "global" keyword within a function. While not ideal practice having global variables
+of any kind, the keyword was necessary in order to properly update the json file, and allow
+the app to continue operating with the most recent data.
+
+The warnings can be seen here:
+
+![Pylint Warnings](readme-content/validation/pylint_validation.png)
 
 #### PEP8 Testing
 
 The Python files have all been run through
 [PEP8 online](http://pep8online.com/). The results are displayed
-[here](./readme-content/validation.md). One warning has been reported multiple
-times:
+[here](readme-content/validation.md). No warnings or errors were found.
 
 ![PEP* Warning](./readme-content/images/validation/w503-warning.png)
 
@@ -352,49 +327,9 @@ Two Python linters were used during the creation of this project.
 - [Flake8](https://flake8.pycqa.org/en/latest/)
 - [Pylint](https://pypi.org/project/pylint/)
 
-They assisted in keeping the code well structured throughout. There are some
-warnings and suggestions highlighted by these linters that will remain in
-place. The explanation of this can be found
-[here](./readme-content/validation.md#linters)
-
----
-
-### W3C Validator
-
-I used the W3C validators to test the HTML and CSS. No errors were reported.
-
-#### HTML
-
-![HTML Results](./readme-content/images/validation/html.png)
-
-#### CSS
-
-![CSS Results](./readme-content/images/validation/css.png)
-
----
-
-### JSHint
-
-I used the online JSHint linter to check the JavaScript within index.html.
-
-![JSHint result](./readme-content/images/validation/jshint.png)
-
-The warnings and undefined variables are related to the creation of the
-terminal. As this code is not my own, and they are not significant errors, I
-have left them as they are.
-
----
-
-### Lighthouse
-
-Lighthouse testing has been performed on desktop only as the site requires a
-minimum screen size of 750 &#215; 750 pixels. The results are satisfactory and
-the suggested modifications are beyond my control due to the nature of the
-project.
-
-![Lighthouse results](./readme-content/images/reports/lighthouse-desktop.png)  
-![Lighthouse suggestions](
-  readme-content/images/reports/lighthouse-suggestions.png)
+While I found for the majority of the time they both alerted me to
+identical issues. They both had their individual uses to keep my code
+looking tidy and running properly.
 
 ---
 
