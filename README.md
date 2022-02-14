@@ -337,48 +337,15 @@ looking tidy and running properly.
 
 ### Current
 
-- It is possible for questions to repeat during the quiz if tokens expire.
+- Unwanted text appears if user presses enter before the opening text has loaded.
+  ![Text Bug](readme-content/images/current_bug.png)
 
-*To resolve this issue, I could re-write the program to retrieve all questions
-simultaneously and store them in lists of dict objects. I would then need to
-manipulate the lists by removing used questions as the quiz progresses. My
-intention has been to show good working practices with data retrieval from an
-API, and data input to a different API. I feel the current method achieves this
-goal in a more satisfying way.*
-
----
-
-- If a user leaves the page idle for an extended period of time, the program
-  appears to stop allowing input.
-
-*This appears to be a bug within the set up of the terminal and is beyond
-the scope of the project.*
+  I'm not completely sure how to fix this, as adding something to catch the error
+  would throw up more unwanted text. The bug itself does not negatively affect anything
+  major. The first Prompt activates after the opening text finished, which in this instance
+  opens the Instructions Page (which I would rather people use initially anyway.)
 
 ---
-
-- Not all browsers allow full size symbols.  
-  ![Half symbols](./readme-content/images/bugs/half-symbols.png)
-
-*It was noted during testing on Mozilla Firefox that the special symbols do not
-display fully. I suspect this is due to limitations of the terminal and do not
-feel it detracts significantly from the user experience.*
-
----
-
-- There is a question that asks about Moore's Law, it appears to have the wrong
-  answer assigned in the API database.
-
-*I have been unable to find a way to report an error with the questions.*
-
----
-
-- I have found typing errors in two questions provided by the API.  
-  ![Double question mark](
-    readme-content/images/bugs/extra-question-mark.png)  
-  ![Double question mark api](
-    readme-content/images/bugs/extra-question-mark-api.png)  
-  ![Double be](readme-content/images/bugs/extra-be.png)  
-  ![Double be api](readme-content/images/bugs/extra-be-api.png)
 
 ### Resolved
 
