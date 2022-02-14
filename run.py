@@ -89,12 +89,18 @@ def task_options(selected_list):
         questions[0].update(menu_choices)
         answer = prompt(questions).get("question")
     if answer == "Add a Tu_Du_":
-        # Adds user inputted task and returns to main menu
-        task_name = input('Name your Tu_Du_ ')
-        delay_print(f'\nYour new Tu_Du_: {task_name} is being added...')
-        selected_list.append(task_name)
-        delay_print(f'\n{task_name} has now been added\n')
-        task_options(selected_list)
+        # Adds user inputted task, then shows the previous menu again
+        while answer == "Add a Tu_Du_":
+            task_name = input('Name your Tu_Du_ ')
+            if not task_name.strip():
+                delay_print("Error: Please choose a name for your Tu_Du_\n")
+            else:
+                delay_print(
+                    f'\nYour new Tu_Du_: {task_name} is being added...'
+                    )
+                selected_list.append(task_name)
+                delay_print(f'\n{task_name} has now been added\n')
+                task_options(selected_list)
     elif answer == "Complete a Tu_Du_":
         menu_choices = {"choices": get_menu_options(selected_list)}
         questions[0].update(menu_choices)
