@@ -93,7 +93,7 @@ def task_options(selected_list):
         task_name = input('Name your Tu_Du_ ')
         delay_print(f'\nYour new Tu_Du_: {task_name} is being added...')
         selected_list.append(task_name)
-        delay_print(f'\n{task_name} has now been added')
+        delay_print(f'\n{task_name} has now been added\n')
         task_options(selected_list)
     elif answer == "Complete a Tu_Du_":
         menu_choices = {"choices": get_menu_options(selected_list)}
@@ -188,22 +188,24 @@ def show_main_menu():
         delay_print(f'\nYour new list: {list_name} is being created...')
         new_user_list = {list_name: []}
         ALL_LISTS[-1].update(new_user_list)
-        delay_print(f'\n{list_name} has now been created')
+        delay_print(f'\n{list_name} has now been created\n')
         show_main_menu()
     if answer == "Open Existing List":
         show_existing_lists()
     if answer == "Save All Lists":
-        delay_print('Now saving all lists...')
+        delay_print('Now saving all lists...\n')
         save_all_lists()
-        delay_print('Your lists have been saved...')
+        delay_print('Your lists have been saved...\n')
         sleep(1)
-        delay_print('Now returning to Main Menu...')
+        delay_print('Now returning to Main Menu...\n')
         sleep(1)
         show_main_menu()
     if answer == "Reset all Lists":
-        delay_print("Resetting all User Lists...")
+        delay_print("Resetting all User Lists...\n")
         reset_all_lists()
-        delay_print("All lists have been reset. Now returning to main menu")
+        delay_print(
+            "All lists have been reset.\n Now returning to main menu\n"
+            )
         show_main_menu()
 
 
