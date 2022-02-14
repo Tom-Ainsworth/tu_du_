@@ -126,16 +126,17 @@ Some example user stories which will affect the design
 
 > *"As a procrastinator, I would like to write down my daily goals to keep track of them and be more productive"*
 >
-> *"As a tech nerd I want see if I can create a to do list app that functions properly and validates input"*
+> *"As a tech nerd I want to see if I can create a to do list app that functions properly and validates input"*
 >
 > *"As a developer new to Python, I would like to build my skills using a command line interface"*
+
 #### Returning User
 
-> *"As a returning user I would like to create multitple lists to seperate my tasks into categories"*
+> *"As a returning user, I would like to create multitple lists to seperate my tasks into categories"*
 >
-> *"I would like to interact with an example to see what can be created in Tu Du"*
+> *"As a returning user, I would like to save my lists for the next time I come and use the app"*
 >
-> *"I would like to start again from scratch so I can create better lists now I know how to use the app"*
+> *"As a returning user, I would like to start again from scratch so I can create better lists now I know how to use the app"*
 
 ### Initial Concept
 
@@ -185,59 +186,32 @@ I used flowcharts and bullet lists to map out how the app would work, so that I 
 
 #### UX
 
-> *"As a programmer, **I would like to test my knowledge**"*
-- The quiz uses an API that has a 'Science: Computers' category. This ensures
-  the questions are related to code and computing in general.
-
----
-
-> *"As a quiz fanatic, **I would like to know how I compare with other
-> users**"*
+> *"As a procrastinator, **I would like to write down my daily goals**"*
+- The app allows users to create a list using the "Create New List" option, and then "Add a Tu_Du"
+  to add daily goals or other tasks.
+> 
+> *"As a tech nerd, **I want to create a to do list app that validates input**"*
+- When users enter either a list name, or a Tu_Du_ name, code checks for both empty inputs,
+  as well as whitespaces such as "      " as an input. It then prints a message and loops back around
+  for the user to try again
 >
-> *"As a returning user, **I would like to see a list of high-scores**"*
+> *"As a developer new to Python, **I would like to build my skills using a command line interface**"*
+- By completing this project, I have demonstrated my ability to create a functioning CLI app, which has taken
+  a lot of work and research to build.
+
+---
+
+> *"As a returning user, **I would like to create multitple lists to seperate my tasks into categories**"*
+- Users can create as many lists as they wish and name them whatever they choose. This could include "shopping",
+  "Cleaning" "Work" as a few examples.
 >
-> *"I would like to know if **my scores are in the high-scores list**"*
-- The program has a score board feature. This can be accessed by users through
-  the use of a keyword.
-
-  ![Score Board](./readme-content/images/scoreboard.png)
-
----
-
-> *"As someone who hasn't used a CLI before, **I would like to know my inputs
-> are valid**"*
-- All user inputs are validated and errors allow repeat opportunities to input
-  a valid selection.
-
-  ![Invalid Input](./readme-content/images/testing/user-no-input.png)
-
----
-
-> *"If I return to play again, **I would like to play different questions**"*
-- The API used has a token service that prevents repeat questions. The token
-  only lasts 6 hours and the question quantity is fairly limited. Without
-  adding some additional, verbose code, using and storing these tokens is the
-  most effective way of trying to prevent repetition for users.
-
----
-
-> *"As someone interested...**how user inputs have been validated and errors
-> have been handled**"*
-- The practices used within the program validate data when retrieving it from
-  external sources. The overall design ensures a positive user experience and
-  handles errors in an appropriate manner.
-
-  ``` Python
-  try:
-      if response.status_code != 200:
-          raise TypeError("API response missing")
-      if "response_code" not in data:
-          raise ValueError("API structure corrupt")
-  except (TypeError, ValueError) as e:
-      red_print(f"Critical Error: {e}")
-      red_print("Program will now terminate!")
-      exit()
-  ```
+> *"As a returning user **I would like to save my lists**"*
+- The "Save All Lists" menu option commits all lists and tasks to the lists.json file, so on the next load,
+  users can continue where they left off.
+>
+> *"As a returning user **I would like to start again from scratch**"*
+- The "Reset All Lists menu option will erase all user created lists, and load the default "Example List". This option
+  doesn't require the user to save as it will commit the changes to lists.json as well.
 
 ---
 
