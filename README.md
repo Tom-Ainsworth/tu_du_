@@ -1,12 +1,10 @@
 # TU_DU_
 
-To open links in a new tab,
-hold 'Command' + click on Mac, and 'ctrl' on Windows
-
 ## Live Site
 
-[Tu_Du_](
-  https://tu-du-list.herokuapp.com/)
+[Tu_Du_](https://tu-du-list.herokuapp.com/)
+To open links in a new tab:
+Hold 'Command' + click on Mac, and 'ctrl' on Windows
 
 ## Repository
 
@@ -80,7 +78,7 @@ The project should run in a CLI, deployed via Heroku, using Python.
 
 ## Brief
 
-### Tu Du
+### Tu_Du_
 
 The goal of this app is to provide the user with an easy to use, interactive to do list, to help them be more productive throughout the day.
 
@@ -118,7 +116,7 @@ Some example user stories which will affect the design
 
 ### Initial Concept
 
-I intend to build a to do list inspired by the app Todoist on the Apple App Store. While my app will not be anywhere near as sofisticated, I plan on using either a JSON file to store the lists locally, and then use Python methods to read, write and remove data from the JSON file. To me this works in a similar fashion to connecting with a google sheets API, however having done that in the "Love Sandwiches" guided project, I thought using JSON would be an added challenge as I haven't worked with it as a separate file before.
+I intend to build a to do list inspired by the app Todoist on the Apple App Store. While my app will not be anywhere near as sofisticated, I plan on using a JSON file to store the lists locally, and then use Python methods to read, write and remove data from the JSON file. To me this works in a similar fashion to connecting with a google sheets API, however having done that in the "Love Sandwiches" guided project, I thought using JSON would be an added challenge as I haven't worked with it as a separate file before.
 
 #### Wireframes
 
@@ -134,7 +132,7 @@ content.
 
 ## Logic
 
-I used flowcharts and bullet lists to map out how the app would work, so that I had a better idea of what needed to be done, and how I could store and call data. At first I wrote down a list of possible functions, and how they would interact with each other. This formed the base for the project, but as I progressed, I found that extra functions, or different approached needed to be taken. I used the Apples built in [Notes](https://en.wikipedia.org/wiki/Notes_(Apple)) app to do the first list mockup and later [Lucid](https://lucid.app/) to create the flowcharts. It has a variety of symbols and is really intuitive for beginners like me.
+I used flowcharts and bullet lists to map out how the app would work, so that I had a better idea of what needed to be done, and how I could store and call data. At first I wrote down a list of possible functions, and how they would interact with each other. This formed the base for the project, but as I progressed, I found that extra functions, or different approached needed to be taken. I used Apple's built in [Notes](https://en.wikipedia.org/wiki/Notes_(Apple)) app to do the first list mockup on iOS, and later [Lucid](https://lucid.app/) to create the flowcharts. It has a variety of symbols and is really intuitive for beginners like me.
 
 ### Initial Plan
 
@@ -165,13 +163,13 @@ I used flowcharts and bullet lists to map out how the app would work, so that I 
 #### UX
 
 > *"As a procrastinator, **I would like to write down my daily goals**"*
-- The app allows users to create a list using the "Create New List" option, and then "Add a Tu_Du"
+- The app allows users to create a list using the "Create New List" option, and then "Add a Tu_Du_"
   to add daily goals or other tasks.
 > 
 > *"As a tech nerd, **I want to create a to do list app that validates input**"*
 - When users enter either a list name, or a Tu_Du_ name, code checks for both empty inputs,
   as well as whitespaces such as "      " as an input. It then prints a message and loops back around
-  for the user to try again
+  for the user to try again.
 >
 > *"As a developer new to Python, **I would like to build my skills using a command line interface**"*
 - By completing this project, I have demonstrated my ability to create a functioning CLI app, which has taken
@@ -180,16 +178,16 @@ I used flowcharts and bullet lists to map out how the app would work, so that I 
 ---
 
 > *"As a returning user, **I would like to create multitple lists to seperate my tasks into categories**"*
-- Users can create as many lists as they wish and name them whatever they choose. This could include "shopping",
+- Users can create as many lists as they wish and name them whatever they choose. This could include "Shopping",
   "Cleaning" "Work" as a few examples.
 >
 > *"As a returning user **I would like to save my lists**"*
-- The "Save All Lists" menu option commits all lists and tasks to the lists.json file, so on the next load,
+- The "Save All Lists" menu option writes all lists and tasks to the lists.json file, so on the next load,
   users can continue where they left off.
 >
 > *"As a returning user **I would like to start again from scratch**"*
 - The "Reset All Lists menu option will erase all user created lists, and load the default "Example List". This option
-  doesn't require the user to save as it will commit the changes to lists.json as well.
+  doesn't require the user to save as it will write the changes to lists.json as well.
 
 ---
 
@@ -202,8 +200,8 @@ the following features would be very useful:
   - Users can currently Save or Reset lists, but should another
   user use the app, they could overwrite the original work.
 - Completed Tasks score
-  - Users get a message once they have completed a Tu_Du_, but knowing how many they
-    have completed in total would create a positive emotional response.
+  - Currently users get a message once they have completed a Tu_Du_, but knowing how many they
+    have completed in total would create a positive emotional response, giving an incentive to continue using the app
 - Mouse Click support
   - Currently the app relies on up/down/enter keys to choose options. PyInquirer does support
     mouseclicks, however with the options being so close together, I opted not to add this yet
@@ -215,7 +213,13 @@ the following features would be very useful:
 
 ## Data Model
 
-A local JSON file was used to hold the lists. I went through a few iterations before landing on the current design. I haven't used separate JSON files before, and it was something that I wanted to implement on my previous project [Sorting Hat Quiz](https://github.com/Tom-Ainsworth/sorting-hat-quiz). I first thought of using a Google Sheet to hold the data, however as mentioned in the Initial Concept section, I was brand new to using JSON, and therefore opted to challenge myself. The current version makes use of a nested dictionary within the "Lists" list within the lists.json file. The keys are the list names, and their values are a nested list of tasks or Tu-Du's. This made it easy to access the data, and meant that the object never gets too deep.
+A local JSON file was used to hold the lists. I went through a few iterations before landing on the current design.
+I haven't used separate JSON files before, and it was something that I wanted to implement on my previous project 
+[Sorting Hat Quiz](https://github.com/Tom-Ainsworth/sorting-hat-quiz). I first thought of using a Google Sheet to hold
+the data, however as mentioned in the Initial Concept section, I was brand new to using JSON, and therefore opted to 
+challenge myself. The current version makes use of a nested dictionary within the "Lists" list within `lists.json`
+The keys are the list names, and their values are a nested list of tasks or Tu-Du's. This made it easy to access the data,
+and meant that the object never gets too deep.
 
 ## Technologies Used
 
@@ -306,7 +310,7 @@ looking tidy and running properly.
 
 ### Current
 
-- Unwanted text appears if user presses enter before prompt appears.
+- Unwanted text appears after a prompt answer if user presses enter before prompt appears to begin with.
   ![Text Bug](readme-content/images/current_bug.png)
 
   I'm not completely sure how to fix this, as adding something to catch the error
@@ -328,7 +332,7 @@ looking tidy and running properly.
 
 2. `QUESTIONS` formerly named `main_menu` only had local scope and so wasn't very repeatable
 - [Commit: d9f96d0](https://github.com/Tom-Ainsworth/tu_du_/commit/d9f96d06cba3f91ddf1e96b1c2c438e96c013f4c)
-  As mentioned, `main_menu` is now named `questions` to avoid confusion with the `show_main_menu()`.
+  As mentioned, `main_menu` is now named `QUESTIONS` to avoid confusion with the `show_main_menu()`.
   Originally this was placed within the function, however I realised it wasn't very repeatable and I was
   having to copy/paste the entire dict to change `choices` key. I opted to make this a global variable, allowing me
   to edit `choices` in various places, and keep the prompts unified throughout the app.
