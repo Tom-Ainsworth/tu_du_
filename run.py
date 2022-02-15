@@ -121,8 +121,8 @@ def task_options(selected_list):
 
 def get_menu_options(selected_list):
     '''
-    Populates the choices with all tasks and
-    "return to main menu" so users can leave the loop"
+    Makes a copy of the tasks from selected_list, then appends
+    the option "return to main menu" so users can leave the loop"
     '''
 
     menu_choices = selected_list.copy()

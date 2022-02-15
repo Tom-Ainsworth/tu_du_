@@ -376,11 +376,41 @@ looking tidy and running properly.
   `save_all_lists()` and `reset_all_lists()` functions. All other manipulation took place within the program, so users
   could still see the changes `Commit: 4965ebc`, `Commit: 226da97`.
 
+4. Removing unused files
+- [Commit: ee982ce](https://github.com/Tom-Ainsworth/tu_du_/commit/ee982ce2d3b188fbef3aa18697d4f98083e61325)
+  At various times towards the end of the project I tried to hand off functions to seperate files in an attempt
+  to clean up `run.py`. This resulted in several circular imports. I resolved these imports by only having the necessary
+  code, but as you can see from the above commit, it left only 1-2 lines. I didn't think this was worth the change, and
+  issues caused by the change, so I kept all task/list handling in run.py.
+
+5. Menu would ask user to complete tasks even when the list was empty
+- [Commit: acd94e3](https://github.com/Tom-Ainsworth/tu_du_/commit/acd94e392b8ba9f2201dbcd092ebb184a43f5aba)
+  I added an `if not` statement to check for an empty list, and only show the relevant options if so.
+
+6. Within the `Complete a Tu_Du_` option, "Return to Main Menu" was being appended as a string to the `selected_list`
+- [Commit: f77c378](https://github.com/Tom-Ainsworth/tu_du_/commit/f77c378ccf444084436f9e42742dc920b7179477)
+  The plan here was to append a menu option so users could go back without completing a task. Thanks to testing by
+  [Maya Claveau](https://github.com/Maya-Claveau), they found this bug, which I then fixed by adding
+  `get_menu_options(selected_list).
+
+7. `save_all_lists()` & `reset_all_lists()` were not updating the global variables
+- [Commit: a135c9b](https://github.com/Tom-Ainsworth/tu_du_/commit/a135c9bac7f4a4e2a7da29b8b76103140f007e2d)
+  I had not realised that the global variables I created on lines 13-15 did not update themselves when their
+  'parent' variable did. To fix this, I added statements to `reset_all_lists()` once I had written to `lists.json`
+  so `show_exisiting_lists()` would update the content displayed.
+
+8. Users could submit blank list or Tu_Du_
+- [Commit: 74f495f](https://github.com/Tom-Ainsworth/tu_du_/commit/74f495f936a2f7b6dbb51ed3107e9408dd8d2e40)
+  [Commit: f59e6f8](https://github.com/Tom-Ainsworth/tu_du_/commit/f59e6f89886baf396bb4dce6c63e0362dcad3029)
+  These commits add the same check to different inputs. I used the `split()` method along with a while loop
+  to catch any empty inputs, or whitespace inputs from spaces. This will display a message for the user, then
+  ask them to try another input.
+
 ---
 
 ## Development
 
-The site was made using [GitHub](#GitHub) and [VSCode](#VSCode)
+The site was made using [GitHub](#GitHub)
 
 ### GitHub
 
@@ -388,10 +418,8 @@ The site was made using [GitHub](#GitHub) and [VSCode](#VSCode)
 
 - Sign in to GitHub.
 - I used a template created by Code Institute that can be accessed
-  [here](https://github.com/DaveyJH/template) and is available for public use
+  [here](https://github.com/Tom-Ainsworth/CI-Full-Template) and is available for public use
   via the **Use this template** button.
-
-![Use Template](./readme-content/images/development/use-template.png)
 
 *Alternatively*
 
