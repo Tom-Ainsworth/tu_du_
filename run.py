@@ -15,7 +15,7 @@ ALL_LISTS = LISTS_CONTAINER["Lists"]
 LIST_NAMES = ALL_LISTS[0].keys()
 
 # Prompt list format
-questions = [
+QUESTIONS = [
         {
             "type": "list",
             "name": "question",
@@ -47,9 +47,9 @@ def show_existing_lists():
     menu_choices = {
         "choices": LIST_NAMES
         }
-    questions[0].update(menu_choices)
+    QUESTIONS[0].update(menu_choices)
 
-    answer = prompt(questions[0]).get("question")
+    answer = prompt(QUESTIONS[0]).get("question")
     selected_list = ALL_LISTS[0][answer]
     # Stop Users from editing "Example List"
     if answer == "Example List":
@@ -57,8 +57,8 @@ def show_existing_lists():
         for task in selected_list:
             fast_delay_print(f'{task}\n')
         menu_choices = {"choices": ["Return to Main Menu"]}
-        questions[0].update(menu_choices)
-        answer = prompt(questions[0]).get("question")
+        QUESTIONS[0].update(menu_choices)
+        answer = prompt(QUESTIONS[0]).get("question")
         if answer:
             show_main_menu()
     else:
@@ -78,15 +78,15 @@ def task_options(selected_list):
             "Add a Tu_Du_", "Return to Main Menu"
             ]
             }
-        questions[0].update(menu_choices)
-        answer = prompt(questions).get("question")
+        QUESTIONS[0].update(menu_choices)
+        answer = prompt(QUESTIONS).get("question")
     else:
         menu_choices = {"choices": [
             "Add a Tu_Du_", "Complete a Tu_Du_", "Return to Main Menu"
             ]
             }
-        questions[0].update(menu_choices)
-        answer = prompt(questions).get("question")
+        QUESTIONS[0].update(menu_choices)
+        answer = prompt(QUESTIONS).get("question")
     if answer == "Add a Tu_Du_":
         # Adds user inputted task, then shows the previous menu again
         while answer == "Add a Tu_Du_":
@@ -102,8 +102,8 @@ def task_options(selected_list):
                 task_options(selected_list)
     elif answer == "Complete a Tu_Du_":
         menu_choices = {"choices": get_menu_options(selected_list)}
-        questions[0].update(menu_choices)
-        answer = prompt(questions).get("question")
+        QUESTIONS[0].update(menu_choices)
+        answer = prompt(QUESTIONS).get("question")
         if answer == "Return to main menu":
             show_main_menu()
         else:
@@ -178,14 +178,14 @@ def show_main_menu():
             "Save All Lists", "Reset all Lists"
         ]
     }
-    questions[0].update(menu_choices)
+    QUESTIONS[0].update(menu_choices)
 
-    answer = prompt(questions).get("question")
+    answer = prompt(QUESTIONS).get("question")
     if answer == "Instructions Page":
         show_instructions_page()
         menu_choices = {"choices": ["Return to main menu"]}
-        questions[0].update(menu_choices)
-        answer = prompt(questions).get("question")
+        QUESTIONS[0].update(menu_choices)
+        answer = prompt(QUESTIONS).get("question")
         if answer == "Return to main menu":
             show_main_menu()
     while answer == "Create a New List":

@@ -337,7 +337,7 @@ looking tidy and running properly.
 
 ### Current
 
-- Unwanted text appears if user presses enter before the opening text has loaded.
+- Unwanted text appears if user presses enter before prompt appears.
   ![Text Bug](readme-content/images/current_bug.png)
 
   I'm not completely sure how to fix this, as adding something to catch the error
@@ -345,36 +345,36 @@ looking tidy and running properly.
   major. The first Prompt activates after the opening text finished, which in this instance
   opens the Instructions Page (which I would rather people use initially anyway.)
 
+  If a user pressed enter before any of the other prompts show, it will also choose the first
+  option on the list. If this happens when an input is required, it will not enter the blank input.
+
 ---
 
 ### Resolved
 
-1. `Token()` updates replaced entire Token instance with a string. [Issue #3](
-  https://github.com/DaveyJH/ci-portfolio-three/issues/3)
+1. App wasn't deploying to Heroku properly
+- [Commit: 3177ccf](https://github.com/Tom-Ainsworth/tu_du_/commit/3177ccfec5b04b8f425ab8e78ce2a6b7336a1fb0?diff=split)
+  To fix this I had to add the installed packages to `requirements.txt`. I then made sure to do this each time I added
+  a new library/package.
 
-   *Commit - **[e3b8fad](https://github.com/DaveyJH/ci-portfolio-three/commit/e3b8fad4d0597cfb198ed1f8cf328ccb572014f9#diff-2e441441a7d377c1aae33ebe67e41c72919ad357d7157185c8fbe05872c85a5fL90-R98)** -
-   I changed the function from assigning the current `Token` with
-   `initiate_new_token()` to assign just a new `Token.string`. The function name
-   was updated to reflect this change.*
+2. `QUESTIONS` formerly named `main_menu` only had local scope and so wasn't very repeatable
+- [Commit: d9f96d0](https://github.com/Tom-Ainsworth/tu_du_/commit/d9f96d06cba3f91ddf1e96b1c2c438e96c013f4c)
+  As mentioned, `main_menu` is now named `questions` to avoid confusion with the `show_main_menu()`.
+  Originally this was placed within the function, however I realised it wasn't very repeatable and I was
+  having to copy/paste the entire dict to change `choices` key. I opted to make this a global variable, allowing me
+  to edit `choices` in various places, and keep the prompts unified throughout the app.
 
-2. If a user name appeared twice in the scores list, only the lowest scores
-  was displayed.
-
-   *Commit - **[2d5dab6](https://github.com/DaveyJH/ci-portfolio-three/commit/2d5dab65106358c64c836e251acae3a2f5c7c488#diff-5b2b3bf19489f20bee7a872754fcd42b85802552be95e5f55dea6ae77fdff94bL564-R581)** -
-   The bug was caused by using a dict object. As keys must be unique in
-   dictionaries, duplicated user names were causing the original instance of the
-   user name to be updated. I have used lists and the `enumerate` function to
-   resolve the issue.*
-
-3. When changing the winner message to print in cyan it became mis-aligned.
-  ![Winner message](./readme-content/images/bugs/win-star-spacing.png)
-
-   *Commit - **[6a1d4b5](https://github.com/DaveyJH/ci-portfolio-three/commit/6a1d4b51d11aff9ffd917c80d4f586ccb81cfaa1#diff-729642661f0f237b47b458a21f8dec9fa4c726ed4e01eaedce8a4ac46d40f5eaR70-L86)** -
-   The `cyan_print` function only permits one string to be passed in. I had
-   overlooked this when writing the winner's message. The message originally
-   used the `rjust()` and `center()` methods. I have removed those methods and
-   (after a couple of mis-calculated attempts) resolved the issue by writing
-   the message as a concatenated string.*
+3. Deciding how to read/write to `lists.json`
+- [Commit: 705d537](https://github.com/Tom-Ainsworth/tu_du_/commit/705d5375d60261170b19e11057e33c95e32c538d)
+- [Commit: 6409c25](https://github.com/Tom-Ainsworth/tu_du_/commit/6409c25528c77c57e77a198f7d117d7eb05af51f)
+- [Commit: 4965ebc](https://github.com/Tom-Ainsworth/tu_du_/commit/4965ebce072c8e4f3108e28845b016268ad75844)
+- [Commit: 226da97](https://github.com/Tom-Ainsworth/tu_du_/commit/226da975b2db6c0ea8a8e57b5c4626ff3e05400d)
+  The above commits all relate to the same issue. As I am new to using JSON files, I went through several ways
+  of accessing the data in `lists.json`. At first, I was using `with open()` statements for reading, then writing
+  data `Commit: 705d537`. This was a long winded way of doing it, as it wasn't necessary to update the list after each user change.
+  I instead finally opted to open the file at the start of the program `Commit: 6409c25`. Then write to it only when necessary, in the
+  `save_all_lists()` and `reset_all_lists()` functions. All other manipulation took place within the program, so users
+  could still see the changes `Commit: 4965ebc`, `Commit: 226da97`.
 
 ---
 
