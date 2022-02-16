@@ -342,7 +342,7 @@ looking tidy and running properly.
 - [Commit: 6409c25](https://github.com/Tom-Ainsworth/tu_du_/commit/6409c25528c77c57e77a198f7d117d7eb05af51f)
 - [Commit: 4965ebc](https://github.com/Tom-Ainsworth/tu_du_/commit/4965ebce072c8e4f3108e28845b016268ad75844)
 - [Commit: 226da97](https://github.com/Tom-Ainsworth/tu_du_/commit/226da975b2db6c0ea8a8e57b5c4626ff3e05400d)
-  The above commits all relate to the same issue. As I am new to using JSON files, I went through several ways
+- The above commits all relate to the same issue. As I am new to using JSON files, I went through several ways
   of accessing the data in `lists.json`. At first, I was using `with open()` statements for reading, then writing
   data `Commit: 705d537`. This was a long winded way of doing it, as it wasn't necessary to update the list after each user change.
   I instead finally opted to open the file at the start of the program `Commit: 6409c25`. Then write to it only when necessary, in the
@@ -356,14 +356,14 @@ looking tidy and running properly.
   code, but as you can see from the above commit, it left only 1-2 lines. I didn't think this was worth the change, and
   issues caused by the change, so I kept all task/list handling in run.py.
 
-5. Menu would ask user to complete tasks even when the list was empty
+5. Prompt would ask user to complete tasks even when the list was empty
 - [Commit: acd94e3](https://github.com/Tom-Ainsworth/tu_du_/commit/acd94e392b8ba9f2201dbcd092ebb184a43f5aba)
   I added an `if not` statement to check for an empty list, and only show the relevant options if so.
 
 6. Within the `Complete a Tu_Du_` option, "Return to Main Menu" was being appended as a string to the `selected_list`
 - [Commit: f77c378](https://github.com/Tom-Ainsworth/tu_du_/commit/f77c378ccf444084436f9e42742dc920b7179477)
   The plan here was to append a menu option so users could go back without completing a task. Thanks to testing by
-  [Maya Claveau](https://github.com/Maya-Claveau), they found this bug, which I then fixed by adding
+  [Maya Claveau](https://github.com/Maya-Claveau), she found this bug, which I then fixed by adding
   `get_menu_options(selected_list).
 
 7. `save_all_lists()` & `reset_all_lists()` were not updating the global variables
@@ -374,8 +374,8 @@ looking tidy and running properly.
 
 8. Users could submit blank list or Tu_Du_
 - [Commit: 74f495f](https://github.com/Tom-Ainsworth/tu_du_/commit/74f495f936a2f7b6dbb51ed3107e9408dd8d2e40)
-  [Commit: f59e6f8](https://github.com/Tom-Ainsworth/tu_du_/commit/f59e6f89886baf396bb4dce6c63e0362dcad3029)
-  These commits add the same check to different inputs. I used the `split()` method along with a while loop
+- [Commit: f59e6f8](https://github.com/Tom-Ainsworth/tu_du_/commit/f59e6f89886baf396bb4dce6c63e0362dcad3029)
+- These commits add the same check to different inputs. I used the `split()` method along with a while loop
   to catch any empty inputs, or whitespace inputs from spaces. This will display a message for the user, then
   ask them to try another input.
 
@@ -383,7 +383,7 @@ looking tidy and running properly.
 
 ## Development
 
-The site was made using [GitHub](#GitHub)
+The app was made using **Github**
 
 ### GitHub
 
@@ -396,20 +396,20 @@ The site was made using [GitHub](#GitHub)
 
 ### Working With Python
 
-This section assumes you have python installed on your machine and added to
-PATH. *I am unfamiliar with macOS so these steps may be different.*
+This section assumes you are working from the template mentioned above, as this is the first python project
+I have worked on.
 
 #### Packages
 
 To install all packages within this repo you can run `pip freeze` and then copy/paste
-the result
+the result.
 
 To install individual packages you need to review the appropriate
 documentation for the install command. All packages I have found and used were
 installed using something similar to `pip install time`. The documentation
 files are linked above under the [python packages](#python-packages) heading.
 
-To run a file from the terminal I pressed the small "play button" icon to run the file.
+To run a file from the terminal I pressed the small "play button" icon in the top right corner of the screenshot to run the file.
 Alternatively, you can open the file you wish to run, and type `python3 file_name` in the terminal.
 ![play button](readme-content/images/run_python_in_terminal.png)
 
